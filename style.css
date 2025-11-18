@@ -1,0 +1,445 @@
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+html {
+    /* Enables smooth scrolling across sections */
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* --- Hero Section Styling --- */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: center;
+    color: #fff; /* White text for contrast */
+    text-align: center;
+    overflow: hidden; /* Ensures background image doesn't bleed */
+}
+
+/* Background Image and Overlay */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use the uploaded image as the background */
+    background: url('assets/images/bg_image.jpg') no-repeat center center/cover;
+    z-index: -2; /* Puts the image behind all content */
+}
+
+/* Semitransparent Overlay (The dark, hazy effect) */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark overlay to make the white text pop */
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1; 
+}
+
+
+/* --- Navigation Bar Styling --- */
+/* --- Navigation Bar Styling --- */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(0, 150, 255, 0.4), transparent);
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    /* Added display flex to align the image and text horizontally */
+    display: flex; 
+    align-items: center;
+}
+.logo-img {
+    height: 100px; /* Adjust height as needed */
+    width: auto;
+    margin-right: 8px; /* Space between the image and the text */
+    /* Adjusting filter to make the blue colours pop a bit more on the dark background */
+    filter: drop-shadow(0 0 5px rgba(0, 150, 255, 0.7)); 
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0096ff; /* Hover effect */
+}
+
+
+/* Styling for buttons in the Nav */
+.btn {
+    padding: 8px 18px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.sign-up {
+    /* Sign Up is the main button in the nav, no fill */
+    background-color: transparent; 
+}
+
+.sign-in {
+    /* Sign In is the secondary button, or possibly slightly less visible */
+    background-color: transparent; 
+    margin-left: 10px;
+}
+
+.sign-up:hover, .sign-in:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* --- Hero Content Styling (Centered Text) --- */
+.hero-content {
+    position: absolute;
+    top: 55%; /* Center vertically, a bit below the middle */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.main-title {
+    font-size: 72px;
+    font-weight: 300; /* Lighter font weight for a sleek look */
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SHOP NOW Button */
+.shop-now {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    border: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 20px; /* Slight rounding */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.shop-now:hover {
+    background-color: #0096ff; /* Blue hover effect */
+    color: #fff;
+}
+.about-section {
+    width: 100%;
+    /* 100vh ensures it fills the viewport when scrolled to */
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    /* Removed background color here, as the container will handle the split colors */
+}
+
+.about-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex; /* Enables the two-column split layout */
+    margin: 0;
+}
+
+/* Left Side: Image */
+.about-image-side {
+    flex: 1; /* Takes up half the width */
+    position: relative;
+    /* Set the background image here */
+    background: url('assets/images/about_us.jpg') no-repeat center center/cover;
+}
+
+/* Right Side: Content and Gradient Background */
+.about-content-side {
+    flex: 1; /* Takes up the other half of the width */
+    padding: 100px 50px; /* Generous padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    text-align: left;
+    color: #000;
+    
+    /* Creating the required subtle background gradient */
+    background: linear-gradient(to top right, #f6f3f8, #e1e9ff); 
+}
+
+.about-subheading {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444; /* Dark gray for the sub-heading */
+    margin-bottom: 10px;
+}
+
+.about-title {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+/* Specific color for the 'obsession' line to match the image */
+.about-title br + span, 
+.about-title {
+    /* If you could upload the custom font, this color would be more accurate. 
+       Using the text itself and applying a similar gradient effect: */
+    background: linear-gradient(to right, #9c45a8, #4f258a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback for browsers without clipping support */
+}
+/* Fallback/Correction for the first line 'Born out of' */
+.about-title {
+    color: #000; /* Default black for the first line */
+    -webkit-text-fill-color: #000;
+    /* We need a specific element to color only the second line. 
+       Let's use a span in the HTML for precision. */
+}
+/* Reverting the HTML to allow targeted styling: */
+/* I will assume you are manually wrapping 'obsession' or splitting the lines in HTML 
+   for best control over the purple gradient as shown in the image.
+   *Since I cannot alter HTML and CSS simultaneously without user input, I will stick 
+   to the HTML provided above and adjust CSS to get as close as possible:* */
+.about-title {
+    color: #000; /* Black for "Born out of" */
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    /* Let's style the purple part of the title */
+}
+.about-content-side h2:nth-of-type(1) {
+    /* Target the second line text if possible */
+    color: #4f258a; /* Deep purple placeholder */
+    background: linear-gradient(to right, #9c45a8, #4f258a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+}
+/* For now, we rely on the HTML structure and the font choice to make the split lines work. 
+   If you change the font, this look will improve. */
+
+
+.about-text {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+/* Learn More Button Styling */
+.learn-more {
+    /* Same styling as the button in the image */
+    background-color: #00b4d8; /* Bright Cyan/Teal color */
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 16px;
+    width: fit-content; /* Only as wide as the content */
+    box-shadow: 0 4px 10px rgba(0, 180, 216, 0.4); /* Subtle shadow for lift */
+    transition: background-color 0.3s;
+}
+
+.learn-more:hover {
+    background-color: #0096cc; /* Slightly darker on hover */
+}
+
+/* --- Products Section Styling --- */
+.products-section {
+    width: 100%;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center content */
+    padding: 80px 0; /* Some padding top/bottom */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* For the background gradients */
+    background-color: #f7f7f7; /* A base light color */
+}
+
+/* Background Gradients to match the image */
+.products-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #e8f0ff, #fdfdff); /* Top-left to bottom-right light gradient */
+    z-index: -2;
+}
+.products-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This gradient provides the subtle blue-purple hue on top left */
+    background: linear-gradient(to top left, rgba(173, 216, 230, 0.3), rgba(147, 112, 219, 0.1), transparent 50%);
+    z-index: -1;
+}
+
+.products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.products-title {
+    font-size: 56px; /* Large font size */
+    font-weight: 700;
+    margin-bottom: 60px;
+    color: #2c5ba7; /* Deep blue color */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.product-gallery {
+    display: flex;
+    justify-content: center; /* Centers the product items */
+    gap: 80px; /* Space between product items */
+    margin-bottom: 60px;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 300px; /* Fixed width for the wrapper */
+    height: 300px; /* Fixed height for the wrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* The light blue circular background behind the products */
+.product-image-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 300px; /* Diameter of the circle */
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, #e0f2f7, #c1e0eb); /* Light blue gradient */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    z-index: -1;
+}
+
+.product-img {
+    max-width: 90%; /* Ensure image fits within its wrapper */
+    max-height: 90%;
+    display: block;
+    object-fit: contain; /* Keeps aspect ratio */
+    transform: scale(1.05); /* Slightly enlarge the image to pop out */
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.2)); /* More prominent shadow for the product */
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px; /* Space from the image */
+}
+
+.products-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+.products-description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.shop-now-products {
+    background-color: #000; /* Black background */
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+}
+
+.shop-now-products:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+}
